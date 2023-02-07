@@ -3,6 +3,7 @@ import React from 'react';
 
 // Chargement du composant React représentant une carte de données
 import Card from './Card.jsx';
+import Input from './Input.jsx';
 
 
 /*
@@ -30,10 +31,10 @@ export class Agenda extends React.Component {
 
             // Pour chaque évènement d'agenda (un record) il faut créer un composant React représentant une carte de données.
             return <Card key={ index }
-                title={ record.fields.title }
-                description={ record.fields.description }
+                title={ record.fields.title_fr }
+                description={ record.fields.description_fr }
                 imageUrl={ record.fields.image }
-                url={ record.fields.link } />
+                url={ record.fields.canonicalurl } />
 
             /*
              * Retourne un nouveau composant Card initialisé avec les données issues de l'API.
@@ -68,6 +69,7 @@ export class Agenda extends React.Component {
 
         return (
             <main>
+                < Input />
                 <section className="card-list">
                     { this.state.cards }
                 </section>
