@@ -19,8 +19,13 @@ const url = 'https://data.iledefrance.fr/api/records/1.0/search/?dataset=eveneme
 export class Agenda extends React.Component {
 
     state = {
-        cards : []      // Liste de composants Card qui seront affichés
+        cards : [],      // Liste de composants Card qui seront affichés
+        // filterValue: ''
     };
+
+    // filterCards(records) {
+
+    // }
 
 
     buildCards(records) {
@@ -34,7 +39,8 @@ export class Agenda extends React.Component {
                 title={ record.fields.title_fr }
                 description={ record.fields.description_fr }
                 imageUrl={ record.fields.image }
-                url={ record.fields.canonicalurl } />
+                url={ record.fields.canonicalurl }
+                date={ record.fields.daterange_fr} />
 
             /*
              * Retourne un nouveau composant Card initialisé avec les données issues de l'API.
@@ -67,9 +73,14 @@ export class Agenda extends React.Component {
 
     render() {
 
+      const setFilter = (value) => {
+        this.setState({
+
+        })
+      }
         return (
             <main>
-                < Input />
+                < Input setFilter={setFilter}/>
                 <section className="card-list">
                     { this.state.cards }
                 </section>
